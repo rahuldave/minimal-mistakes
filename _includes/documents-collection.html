@@ -1,5 +1,9 @@
 {% assign entries = site[include.collection] %}
 
+{% if include.filter_by %}
+  {% assign entries = entries | where: include.filter_by, include.filer_val %}
+{% endif %}
+
 {% if include.sort_by %}
   {% assign entries = entries | sort: include.sort_by %}
 {% endif %}
